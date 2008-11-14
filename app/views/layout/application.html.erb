@@ -6,14 +6,19 @@
     <link rel="stylesheet" href="/stylesheets/master.css" type="text/css" media="screen" charset="utf-8" />
   </head>
   <body>
-    <h1>BuiltByTheNet</h1>
-    <% if message[:notice] %>
+    <center>
+      <h1>BuiltByTheNet</h1>
+
+      <%= partial "shared/header_links" %>
+
+      <% if message[:notice] %>
       <div id='notice'><%= message[:notice] %></div>
-    <% end %>
-    <% if message[:error] %>
+      <% end %>
+      <% if message[:error] %>
       <div id='error'><%= message[:error] %></div>
-    <% end %>
-    <p />
-    <%= catch_content :for_layout %>
+      <% end %>
+      <p />
+      <%= catch_content :for_layout %>
+    </center>
   </body>
 </html>
