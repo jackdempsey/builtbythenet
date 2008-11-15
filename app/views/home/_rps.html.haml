@@ -2,7 +2,7 @@
 = form :action => '/home/rps_calc' do
   = radio_group :convert_to, [{:value => :rps, :label => 'reqs/sec'}, {:value => :rpd, :label => 'reqs/day'}]
   %p
-  = show_conversion_message(params[:convert_to])
+  = show_conversion_message(params[:convert_to]) if request.post?
   %p
   %input{:name => 'requests_per', :size => 40}
   = submit 'submit'
