@@ -1,3 +1,8 @@
+%h2 Convert to:
 = form :action => '/home/rps_calc' do
-  %input{:name => 'rpd', :size => 40}
-  =submit 'submit'
+  = radio_group :convert_to, [{:value => :rps, :label => 'reqs/sec'}, {:value => :rpd, :label => 'reqs/day'}]
+  %p
+  = show_conversion_message(params[:convert_to])
+  %p
+  %input{:name => 'requests_per', :size => 40}
+  = submit 'submit'

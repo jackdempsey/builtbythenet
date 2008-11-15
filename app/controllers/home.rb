@@ -8,12 +8,16 @@ class Home < Application
 
   def rps_calc
     redirect '/' if request.get?
-    if params[:rpd]
-      @rpd = params[:rpd].tr(',','').to_i
-      if @rpd >= 86_400
-        @rps = @rpd / 86_400 # number of seconds in a day
+    if params[:requests_per]
+      @requests_per = params[:requests_per].tr(',','').to_i
+      if params[:convert_to] == 'rpd'
+        @answer = @requests_per * 86_400 # number of seconds in a day
       else
-        message[:error] = "You need a number greater than 86,400"
+        if @requests_per >= 86_400
+          @answer = @requests_per / 86_400 # number of seconds in a day
+        else
+          message[:error] = "You need a number greater than 86,400"
+        end
       end
     end
     render
