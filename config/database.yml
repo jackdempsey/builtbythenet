@@ -2,8 +2,8 @@
 # This is a sample database file for the DataMapper ORM
 development: &defaults
   # These are the settings for repository :default
-  adapter:  sqlite3
-  database: sample_development.db
+  adapter:  mysql
+  database: bbtn_dev
  
   # Add more repositories
   # repositories:
@@ -15,7 +15,7 @@ development: &defaults
  
 test:
   <<:       *defaults
-  database: sample_test.db
+  database: bbtn_test
  
   # repositories:
   #   repo1:
