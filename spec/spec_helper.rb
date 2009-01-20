@@ -1,4 +1,5 @@
 require "rubygems"
+require "ruby-debug"
 
 # Add the local gems dir if found within the app root; any dependencies loaded
 # hereafter will try to load from the local gems before loading system gems.
